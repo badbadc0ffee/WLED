@@ -96,7 +96,7 @@ void handleE131Packet(e131_packet_t* p, IPAddress clientIP){
   uint16_t len = htons(p->property_value_count) -1;
   len /= 3; //one LED is 3 DMX channels
   
-  uint16_t multipacketOffset = (uni - e131Universe)*170; //if more than 170 LEDs (510 channels), client will send in next higher universe 
+  uint16_t multipacketOffset = (uni - e131Universe)*144; //if more than 170 LEDs (510 channels), client will send in next higher universe 
   if (ledCount <= multipacketOffset) return;
 
   arlsLock(realtimeTimeoutMs);
